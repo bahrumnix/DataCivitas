@@ -4,31 +4,6 @@ include('koneksi\config.php');
     //tombol submit
     if(isset($_POST['simpan']))
     {
-        //data hasil edit atau baru
-        if($_GET['hal'] ==  "edit")
-        {
-          //data diedit
-          $edit = mysqli_query($koneksi, "UPDATE mahasiswa SET
-                                            nama = '$_POST[nama]',
-                                            nim = '$_POST[nim]',
-                                            nohp = '$_POST[nohp]',
-                                            agama = '$_POST[agama]',
-                                            alamat = '$_POST[alamat]'
-                                          WHERE nomor = '$_GET[id]'
-                            ");
-          if($edit){ //jika edit berhasil tampilkan alert
-            echo "<script>
-                    alert('Edit Data Berhasil!');
-                    document.location='index2.php';
-                </script>";
-          }else{
-            echo "<script>
-                    alert('Edit Data GAGAL!');
-                    document.location='index2.php';
-                </script>";
-          }
-        }
-        else{
           //Simpan data baru
           $simpan = mysqli_query($koneksi, "INSERT INTO mahasiswa(nama,nim,nohp,agama,alamat)
                                             VALUES ('$_POST[nama]',
@@ -50,8 +25,30 @@ include('koneksi\config.php');
           }
         }
         
-      }
-  
+      //Tombol edit
+             //data hasil edit atau baru
+      if(isset($_POST['edit'])){
+               //data diedit
+        $edit = mysqli_query($koneksi, " UPDATE mahasiswa SET
+                                         nama = '$_POST[nama]',
+                                         nim = '$_POST[nim]',
+                                         nohp = '$_POST[nohp]',
+                                         agama = '$_POST[agama]',
+                                         alamat = '$_POST[alamat]'
+                                        WHERE nomor = '$_GET[id]'
+                                 ");
+        if($edit){ //jika edit berhasil tampilkan alert
+          echo "<script>
+                alert('Edit Data Berhasil!');
+                document.location='index2.php';
+                </script>";
+        }else{
+          echo "<script>
+                alert('Edit Data GAGAL!');
+                document.location='index2.php';
+                </script>";
+               }
+             }
       //action hapus
       if(isset($_GET['hal'])){
         if ($_GET['hal']=="hapus"){
