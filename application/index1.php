@@ -1,23 +1,5 @@
 <?php
 include('koneksi\config.php');
-  
-      //tombol edit data
-      if(isset($_GET['hal'])){
-        //jika pilih edit
-        if($_GET['hal']=="edit"){
-          //data ditampilkan untuk diedit
-          $tampil = mysqli_query($koneksi,"SELECT * FROM mahasiswa WHERE nomor = '$_GET[id]' ");
-          $data = mysqli_fetch_array($tampil);
-          if($data){
-            //jika data ditemukan, disimpan sementara dalam var
-            $vnama = $data['nama'];
-            $vnim = $data['nim'];
-            $vnohp = $data['nohp'];
-            $vagama = $data['agama'];
-            $valamat = $data['alamat'];
-          }
-        }
-      }
 ?>
 <!DOCTYPE html>
 <html>
