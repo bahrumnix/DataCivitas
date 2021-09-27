@@ -98,14 +98,12 @@ include('koneksi\config.php');
                             </select>
                     </div>
                     <div class="form-group">
-                            <label for="alamat"> ALAMAT</label>
+                            <label for="alamat">ALAMAT</label>
                             <br>
-                            <textarea name="alamat" class="form-control" placeholder="Masukkan Alamat"  rows="10" required>
-                            <?=@$valamat?>
-                            </textarea>
+                            <textarea name="alamat" class="form-control" placeholder="Masukkan Alamat"  rows="10" required><?=@$valamat?></textarea>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-success" name="simpan">Edit</button>
+                    <button type="submit" class="btn btn-success" name="edit">Edit</button>
                     <button type="reset" class="btn btn-danger" name="reset">Reset</button>
                 </form>
             </div>    
